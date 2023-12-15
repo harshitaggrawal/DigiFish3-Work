@@ -45,8 +45,12 @@ class ApiController extends Controller
         $data = session('data');
         $phoneNo=session('phone');
         //  dd($data['response'].'      '.$reqId= $data['reqid'].'       '.$phoneNo);
+       
+           
+        
+        
+       
         $reqId= $data['reqid'];
-
         $PinApi='http://137.184.145.124:9003/ae/alt_eti-GameTerrain/api?network_key=u6naOdET0J&msisdn='.$phoneNo.'&method=verifyOtp&otp='.$pinNo.'&reqid='.$reqId;
 
 

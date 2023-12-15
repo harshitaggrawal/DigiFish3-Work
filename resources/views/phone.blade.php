@@ -11,6 +11,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+
+<script>
+         // Function to show loader and disable the button
+         function showLoader() {
+            document.getElementById('loading-overlay').style.display = 'flex';
+           
+        }
+
+        // Function to hide loader and enable the button after document is loaded
+        function hideLoader() {
+            document.getElementById('loading-overlay').style.display = 'none';
+            
+        }
+
+        // Trigger hideLoader when the document is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            hideLoader();
+        });
+    </script>
 </head>
 <body>
    
@@ -21,7 +40,10 @@
                     @csrf
                     <label for="phone">Phone Number:</label>
                     <input type="text" name="phone" id="phone" placeholder="999_XXX_XXX" required>
-                    <button type="submit" id="button" class="phonebtn" >Submit</button>
+                    <button type="submit" id="button" class="phonebtn" onclick="showLoader();">Submit</button>
+                    <div id="loading-overlay" class="loading-overlay">
+                        <div class="loader"></div>
+                    </div>
             </form>
 
          <div class="afterContact">
@@ -58,7 +80,7 @@
                 <script>
                     document.querySelector('.afterContact').classList.add('active');
 
-document.querySelector('.phonebtn').style.display='none';
+                    document.querySelector('.phonebtn').style.display='none';
                 </script>
                 <p class="error">{{ $errorPin }}</p>
             @endif
@@ -107,6 +129,17 @@ document.querySelector('.phonebtn').style.display='none';
              <p>If you have any questions or concerns about these terms and conditions, please contact us at care@digifish3.com</p>
         </div>
     </div>
+
+
+
+
+
+
+
+
+   
+   
+
 
 </body>
 </html>
